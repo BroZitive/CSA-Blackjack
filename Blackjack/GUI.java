@@ -548,7 +548,7 @@ public class GUI extends JFrame
         {
             public void actionPerformed(ActionEvent evt)
             {
-                //Attempts to decreasee the value in the inputAmount JTextField by 1.
+                //Attempts to decrease the value in the inputAmount JTextField by 1.
                 try
                 {
                     //Checks if the value in the inputAmount JTextField is grater or equals to 1 and if so subtracts 1 from the value in the inputAmount JTextField.
@@ -571,7 +571,7 @@ public class GUI extends JFrame
         {
             public void actionPerformed(ActionEvent evt)
             {
-                //Attempts to decreasee the value in the inputAmount JTextField by 5.
+                //Attempts to decrease the value in the inputAmount JTextField by 5.
                 try
                 {
                     //Checks if the value in the inputAmount JTextField is grater or equals to 5 and if so subtracts 5 from the value in the inputAmount JTextField.
@@ -594,7 +594,7 @@ public class GUI extends JFrame
         {
             public void actionPerformed(ActionEvent evt)
             {
-                //Attempts to decreasee the value in the inputAmount JTextField by 25.
+                //Attempts to decrease the value in the inputAmount JTextField by 25.
                 try
                 {
                     //Checks if the value in the inputAmount JTextField is grater or equals to 25 and if so subtracts 25 from the value in the inputAmount JTextField.
@@ -617,7 +617,7 @@ public class GUI extends JFrame
         {
             public void actionPerformed(ActionEvent evt)
             {
-                //Attempts to decreasee the value in the inputAmount JTextField by 100.
+                //Attempts to decrease the value in the inputAmount JTextField by 100.
                 try
                 {
                     //Checks if the value in the inputAmount JTextField is grater or equals to 100 and if so subtracts 100 from the value in the inputAmount JTextField.
@@ -695,7 +695,15 @@ public class GUI extends JFrame
 
                         hitButton.setEnabled(true);
                         standButton.setEnabled(true);
-                        doubleButton.setEnabled(true);
+                        
+                        if((betAmount*2) <= balance.getBalance())
+                        {
+                            doubleButton.setEnabled(true);
+                        }
+                        else
+                        {
+                            doubleButton.setEnabled(false);
+                        }
                     }
                 }
                 //If the attempt failed then the code does nothing until the value of the inputAmount JTextField is valid.
@@ -771,7 +779,7 @@ public class GUI extends JFrame
         }
         );
 
-        //When the load option is seleted, a new load window pops up with an option to load your progress from another save.
+        //When the load option is selected, a new load window pops up with an option to load your progress from another save.
         load.addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent evt)
@@ -786,7 +794,7 @@ public class GUI extends JFrame
         }
         );
 
-        //When the enableDevMode option is seleted, a new Developer Mode window pops up with an option to enable devMode and cheats.
+        //When the enableDevMode option is selected, a new Developer Mode window pops up with an option to enable devMode and cheats.
         enableDevMode.addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent evt)
@@ -801,7 +809,7 @@ public class GUI extends JFrame
         }
         );
 
-        //When the changeBalance option is seleted, a new Developer Mode window pops up with an option to change your balance.
+        //When the changeBalance option is selected, a new Developer Mode window pops up with an option to change your balance.
         changeBalance.addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent evt)
@@ -907,7 +915,7 @@ public class GUI extends JFrame
                 }
             }
         };
-        timer = new Timer(1000, al);//create the timer which calls the actionperformed method for every 1000 millisecond(1 second=1000 millisecond)
+        timer = new Timer(1000, al);//create the timer which calls the actionPerformed method for every 1000 millisecond(1 second=1000 millisecond)
         timer.start();//start the task
         hitButton.setEnabled(false);
         standButton.setEnabled(false);
@@ -964,7 +972,7 @@ public class GUI extends JFrame
         }
     }
 
-    //When callet it checks If player's total cards value is greater than 21, and if so it ends the game by calling endgame() and decreases the balance because the player is busted.
+    //When called it checks If player's total cards value is greater than 21, and if so it ends the game by calling endgame() and decreases the balance because the player is busted.
     public void busted()
     {
         if (winCalculator.getPersonScore()>21)
@@ -975,7 +983,7 @@ public class GUI extends JFrame
         }
     }
 
-    //When called it repositions and sets visible/invisible some items in the main GUI window to represent the end of the game and shows different victory status labels dependin on the results of the game.
+    //When called it repositions and sets visible/invisible some items in the main GUI window to represent the end of the game and shows different victory status labels depending on the results of the game.
     public void endGame(int win)
     {
         quitButton.setBounds((550-220)/2-120, 675, 220, 60);
